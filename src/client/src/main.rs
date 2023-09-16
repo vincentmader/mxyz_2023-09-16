@@ -1,5 +1,7 @@
 use yew::prelude::*;
 
+use client::services::wss::Model;
+
 #[function_component]
 fn App() -> Html {
     let counter = use_state(|| 0);
@@ -15,6 +17,7 @@ fn App() -> Html {
         <div>
             <button {onclick}>{ "+1" }</button>
             <p>{ *counter }</p>
+            <Model />
         </div>
     }
 }
