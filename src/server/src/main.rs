@@ -15,7 +15,8 @@ fn index() -> Template {
 }
 
 #[launch]
-fn rocket() -> _ {
+async fn rocket() -> _ {
+    server::services::wss::start_server("127.0.0.1", 3000);
     rocket::build()
         .attach(Template::fairing())
         .mount("/static", FileServer::from(relative!("static")))
